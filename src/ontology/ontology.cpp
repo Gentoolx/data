@@ -50,6 +50,23 @@ namespace Wintermute {
                 qDebug() << "(data) [System] # ontology # Unloaded.";
             }
 
+            Resource::Resource(QObject *parent) :
+                QObject(parent), m_repo(0)
+            {
+            }
+
+            Resource::Resource(const Resource &resource)
+            {
+                m_node = resource.m_node;
+                m_repo = resource.m_repo;
+            }
+
+            Resource::Resource(const Soprano::Node &node, const Repository *parent)
+            {
+                m_node = node;
+                m_repo = parent;
+            }
+
             const int Resource::countConcepts () { return 0; }
 
             Repository::Repository(const QString &p_str) : m_repoName(p_str) { load(); }
@@ -105,7 +122,7 @@ namespace Wintermute {
                 else return l_repo->obtainResource(p_res);
             }
 
-            Repository::~Repository() { qDebug() << "Destroyed repository" << m_repoName << "."; }
+            Repository::~Repository() { qDebug() << "Destroyed repository " << m_repoName << "."; }
         }
     }
 }

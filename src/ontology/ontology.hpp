@@ -41,11 +41,11 @@ using namespace std;
 namespace Wintermute {
     namespace Data {
         namespace Ontology {
-            struct System;
-            struct Resource;
-            struct Repository;
-
             typedef QString Concept;
+
+            class System;
+            class Resource;
+            class Repository;
 
             /**
              * \brief Configuration class for the ontology section.
@@ -108,7 +108,7 @@ namespace Wintermute {
                      * \fn Resource
                      * \param parent The parent object.
                      */
-                    explicit Resource( const QObject* parent = NULL );
+                    explicit Resource( QObject* parent = NULL );
 
                     /**
                      * \brief Copy constructor.
