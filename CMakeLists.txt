@@ -32,12 +32,8 @@ include(WintermuteMacros)
 include(WintermuteDefaults)
 enable_doxygen()
 
-if(not CMAKE_BUILD_TYPE)
-    set(CMAKE_BUILD_TYPE RelWithDebInfo)
-endif()
-
-if(not CMAKE_INSTALL_PREFIX)
-    set(CMAKE_INSTALL_PREFIX /usr)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE ${WINTER_BUILD_TYPE})
 endif()
 
 find_package(PkgConfig REQUIRED)
@@ -84,7 +80,7 @@ configure_file("${PROJECT_SOURCE_DIR}/config.hpp.in"
 configure_file("${PROJECT_SOURCE_DIR}/spec.in"
 		"${PROJECT_BINARY_DIR}/InstallFiles/${WNTRDATA_UUID}.spec" @ONLY)
 
-#dbus_add_activation_service(org.thesii.Wintermute.Data.service.in)
+#dbus_add_activation_service(services/org.thesii.Wintermute.Data.service.in)
 
 ## Installs
 install(FILES "${PROJECT_BINARY_DIR}/InstallFiles/WntrDataConfig.cmake"
