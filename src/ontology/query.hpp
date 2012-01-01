@@ -25,7 +25,7 @@ class Query : public QObject
 private:
     QString base;
     QStringList prefixes;
-    QString variables;
+    QStringList variables;
     QStringList triples;
 
     QString contents;

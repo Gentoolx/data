@@ -108,7 +108,7 @@ namespace Wintermute {
                      * \fn Resource
                      * \param parent The parent object.
                      */
-                    explicit Resource( QObject* parent = NULL );
+                    explicit Resource(QObject* parent = 0);
 
                     /**
                      * \brief Copy constructor.
@@ -167,7 +167,7 @@ namespace Wintermute {
                     void loaded() const;
 
                 public:
-                    explicit Repository(const QObject* parent = NULL);
+                    explicit Repository(const QObject* parent = 0);
                     Repository(const QString& p_str);
                     Repository(const Repository& p_repo);
                     virtual ~Repository();
